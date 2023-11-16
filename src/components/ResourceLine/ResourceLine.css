@@ -1,0 +1,10 @@
+.ResourceLine {
+  display: flex;
+  flex-direction: column;
+  background-color: lightblue;
+}
+
+.ResourceLine .iconAmount {
+  display: flex;
+  gap: 20px;
+}

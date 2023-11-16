@@ -5,7 +5,7 @@ interface Props {
   structures: Improvement[];
 }
 
-const Map = ({structures}: Props) => {
+const Map = ({ structures }: Props) => {
   return <div className="Map">Map works</div>;
 };
 
