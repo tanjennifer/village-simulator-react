@@ -10,7 +10,7 @@ interface Props {
 const ResourceLine = () => {
   return (
     <div className='ResourceLine'>
-        ResourceLine works
+        
     </div>
   )
 };

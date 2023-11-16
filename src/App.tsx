@@ -36,7 +36,7 @@ const [structures, setStructures] = useState<Improvement[]>([
         <h1>Space Colony</h1>
       </header>
     <Map structures={structures}/>
-    <ResourcesView />
+    <ResourcesView  />
     </div>
   )
 }
