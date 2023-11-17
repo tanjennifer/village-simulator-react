@@ -10,7 +10,9 @@ const ResourceLine = ({ icon, type, amount }: Props) => {
   return (
     <div className="ResourceLine">
       <p className="type">{type}</p>
-      <p className="icon">{icon}</p>
+      <div className="iconContainer">
+        <img src={icon} className="icon"></img>
+      </div>
       <p className="amount">{amount}</p>
     </div>
   );

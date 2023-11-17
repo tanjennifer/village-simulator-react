@@ -10,7 +10,7 @@ interface Props {
   idx: number;
 }
 
-const Tile = ({ structure, addImprovement }: Props) => {
+const Tile = ({ structure, addImprovement, idx }: Props) => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
@@ -34,6 +34,7 @@ const Tile = ({ structure, addImprovement }: Props) => {
       </div>
       {showAddForm && (
         <AddImprovementDialog
+          idx={idx}
           addImprovement={addImprovement}
           structure={structure}
           close={() => {

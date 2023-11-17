@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import Improvement from "../../models/Improvement";
 import "./AddImprovementDialog.css";
 
@@ -6,6 +6,7 @@ interface Props {
   structure: Improvement;
   close: () => void;
   addImprovement: (index: number, improvement: Improvement) => void;
+  idx: number;
 }
 
 const improvementTypes: string[] = [
@@ -15,12 +16,19 @@ const improvementTypes: string[] = [
   "Observatory",
 ];
 
-const AddImprovementDialog = ({ close, addImprovement }: Props) => {
+const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
   const [improvement, setImprovement] = useState("");
+
+  const submitHandler = (e: FormEvent) => {
+    e.preventDefault();
+    const newImprovement: Improvement = { type: improvement, level: 1}
+    addImprovement(idx, newImprovement)
+  };
+
   return (
     <>
-      <form className="AddImprovementDialog">
-        {/* <button onClick={() => addImprovement()}>add</button> */}
+      <form className="AddImprovementDialog" onSubmit={submitHandler}>
+        <button>add</button>
         <button type="button" onClick={close}>
           close
         </button>

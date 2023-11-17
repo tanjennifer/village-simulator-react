@@ -30,15 +30,6 @@ function App() {
     });
   };
 
-  /* // opt 1 - make a copy and modify copy
-    setCurrentEmployees((prev) => {
-      // make a copy
-      const copyOfPrev = [...prev.slice(0)];
-      // modify copy
-      copyOfPrev.splice(location, 1);
-      // return that copy
-      return copyOfPrev;
-    }); */
 
   const upgradeImprovemnt = (index: number): void => {};
 

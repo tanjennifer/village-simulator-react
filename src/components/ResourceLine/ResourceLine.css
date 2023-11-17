@@ -7,13 +7,19 @@
   background: linear-gradient(to right, #00416a, #24243e, #00416a, #24243e);
 }
 .ResourceLine .type {
+  flex: 3;
+}
+
+.ResourceLine .iconContainer {
   flex: 2;
 }
 
 .ResourceLine .icon {
-  flex: 2;
+  width: 26px;
+  height: 26px;
 }
 
 .ResourceLine .amount {
   flex: 1;
 }
+
