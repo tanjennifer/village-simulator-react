@@ -9,11 +9,9 @@ interface Props {
 const ResourceLine = ({ icon, type, amount }: Props) => {
   return (
     <div className="ResourceLine">
-      <div className="type">{type}</div>
-      <div className="iconAmount">
-        <p className="icon">{icon}</p>
-        <p className="amount">{amount}</p>
-      </div>
+      <p className="type">{type}</p>
+      <p className="icon">{icon}</p>
+      <p className="amount">{amount}</p>
     </div>
   );
 };

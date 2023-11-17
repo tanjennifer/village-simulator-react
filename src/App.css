@@ -1,11 +1,17 @@
 .App main {
   display: flex;
+  flex-direction: column;
 }
 
-.App .resourceView {
-  flex: 1;
+.App header {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.App .map {
-  flex: 4;
+@media only screen and (min-width: 768px) {
+  .App main {
+    flex-direction: row;
+  }
 }

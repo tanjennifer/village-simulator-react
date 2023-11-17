@@ -5,33 +5,9 @@ import ResourcesView from "./components/ResourcesView/ResourcesView";
 import Map from "./components/Map/Map";
 
 function App() {
-  const [structures, setStructures] = useState<(Improvement | null)[]>([
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-    null,
-  ]);
+  const [structures, setStructures] = useState<Improvement[]>(
+    new Array(25).fill(null)
+  );
 
   return (
     <div className="App">

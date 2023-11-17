@@ -1,10 +1,19 @@
 .ResourceLine {
   display: flex;
-  flex-direction: column;
-  background-color: lightblue;
+  border: 3px solid black;
+  padding: 10px;
+  font-weight: bold;
+  background: linear-gradient(to right, #00416a, #24243e, #00416a, #24243e);
+  color: ivory;
+}
+.ResourceLine .type {
+  flex: 2;
 }
 
-.ResourceLine .iconAmount {
-  display: flex;
-  gap: 20px;
+.ResourceLine .icon {
+  flex: 2;
+}
+
+.ResourceLine .amount {
+  flex: 1;
 }
