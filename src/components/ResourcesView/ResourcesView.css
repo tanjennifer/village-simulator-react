@@ -3,4 +3,11 @@
   flex-direction: column;
   gap: 5px;
   margin: 20px 60px;
+  flex: 1;
+}
+
+.ResourcesView {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 }

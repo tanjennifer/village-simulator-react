@@ -15,12 +15,8 @@ function App() {
         <h1>Space Colony</h1>
       </header>
       <main>
-        <section className="resourceView">
-          <ResourcesView />
-        </section>
-        <section className="map">
-          <Map structures={structures} />
-        </section>
+        <ResourcesView />
+        <Map structures={structures} />
       </main>
     </div>
   );

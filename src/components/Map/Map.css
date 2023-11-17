@@ -1,0 +1,6 @@
+.Map {
+  flex: 3;
+  width: 540px;
+  height: 540px;
+  background-color: blue;
+}
