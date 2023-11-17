@@ -1,0 +1,7 @@
+.Tile {
+  width: 65px;
+  height: 65px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  color: black;
+}

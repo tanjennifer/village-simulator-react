@@ -1,7 +1,10 @@
 .Map {
-  width: 90vw;
+  width: 400px;
   height: fit-content;
-  background-color: blue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 35px;
 }
 
 @media only screen and (min-width: 768px) {

@@ -8,6 +8,14 @@ function App() {
   const [structures, setStructures] = useState<Improvement[]>(
     new Array(25).fill(null)
   );
+  // const [selectedTile, setSelectedTile] = useState(null);
+
+  // functions --------------------------------------------------
+
+  // handleTileClick:
+  const handleTileClick = (index: number) => {
+    const selectedTile = structures[index];
+  };
 
   return (
     <div className="App">
