@@ -8,14 +8,39 @@ function App() {
   const [structures, setStructures] = useState<Improvement[]>(
     new Array(25).fill(null)
   );
-  // const [selectedTile, setSelectedTile] = useState(null);
+
+  const hardcodedImprovement: Improvement = {
+    type: "Research Lab",
+    level: 3,
+  };
+
+  structures[0] = hardcodedImprovement;
+  structures[10] = hardcodedImprovement;
 
   // functions --------------------------------------------------
 
-  // handleTileClick:
-  const handleTileClick = (index: number) => {
-    const selectedTile = structures[index];
+  const addImprovement = (index: number, improvement: Improvement): void => {
+    setStructures((prev) => {
+      // make a copy
+      const copyOfPrev = [...prev.slice(0)];
+      // modify copy
+      copyOfPrev[index] = improvement;
+      // return that copy
+      return copyOfPrev;
+    });
   };
+
+  /* // opt 1 - make a copy and modify copy
+    setCurrentEmployees((prev) => {
+      // make a copy
+      const copyOfPrev = [...prev.slice(0)];
+      // modify copy
+      copyOfPrev.splice(location, 1);
+      // return that copy
+      return copyOfPrev;
+    }); */
+
+  const upgradeImprovemnt = (index: number): void => {};
 
   return (
     <div className="App">
@@ -24,7 +49,7 @@ function App() {
       </header>
       <main>
         <ResourcesView />
-        <Map structures={structures} />
+        <Map structures={structures} addImprovement={addImprovement} />
       </main>
     </div>
   );

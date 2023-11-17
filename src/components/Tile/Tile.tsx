@@ -6,9 +6,11 @@ import EditImprovementDialog from "../EditImprovementDialog/EditImprovementDialo
 
 interface Props {
   structure: Improvement;
+  addImprovement: (index: number, improvement: Improvement) => void;
+  idx: number;
 }
 
-const Tile = ({ structure }: Props) => {
+const Tile = ({ structure, addImprovement }: Props) => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
 
@@ -32,13 +34,21 @@ const Tile = ({ structure }: Props) => {
       </div>
       {showAddForm && (
         <AddImprovementDialog
+          addImprovement={addImprovement}
           structure={structure}
           close={() => {
             setShowAddForm(false);
           }}
         />
       )}
-      {showEditForm && <EditImprovementDialog structure={structure} />}
+      {showEditForm && (
+        <EditImprovementDialog
+          structure={structure}
+          close={() => {
+            setShowEditForm(false);
+          }}
+        />
+      )}
     </>
   );
 };
