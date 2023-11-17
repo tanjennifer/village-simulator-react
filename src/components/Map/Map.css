@@ -1,6 +1,11 @@
 .Map {
-  flex: 3;
-  width: 540px;
-  height: 540px;
+  width: 90vw;
+  height: fit-content;
   background-color: blue;
+}
+
+@media only screen and (min-width: 768px) {
+  .Map {
+    flex: 3;
+  }
 }
