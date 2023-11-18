@@ -1,10 +1,37 @@
 .EditImprovementDialog {
-  width: fit-content;
-  height: fit-content;
   background-color: aqua;
+  background-image: linear-gradient(to right, #6dd5fa, #ff758c);
   position: absolute;
-  color: black;
+  color: #00416a;
   font-weight: bold;
-  padding: 10px;
-  border: 3px solid #00416a;
+  font-size: 1rem;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.EditImprovementDialog button {
+  background-color: #00416a;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.EditImprovementDialog button:hover {
+  background-color: #0066cc;
+}
+
+.EditImprovementDialog select {
+  padding: 5px;
+  border-radius: 5px;
+  margin: 10px 0;
+}
+
+.EditImprovementDialog label {
+  display: block;
+  margin-bottom: 5px;
 }

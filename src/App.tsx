@@ -8,10 +8,26 @@ function App() {
   const [structures, setStructures] = useState<Improvement[]>(
     new Array(25).fill(null)
   );
+  // Add state for starting resources
+  // both ResourceView and Map need this
+  const [resources, setResources] = useState({
+    starDust: 5,
+    oxygen: 5,
+    alienFood: 5,
+    gloopie: 1,
+    alien: 0,
+  });
 
   const hardcodedImprovement: Improvement = {
     type: "Research Lab",
-    level: 3,
+    level: 1,
+    benefit: { resourceType: "alien", amountGained: 5 },
+    cost: [
+      { resourceType: "starDust", amountRequired: 5 },
+      { resourceType: "oxygen", amountRequired: 5 },
+      { resourceType: "alienFood", amountRequired: 5 },
+      { resourceType: "gloopie", amountRequired: 1 },
+    ],
   };
 
   structures[0] = hardcodedImprovement;
@@ -30,8 +46,15 @@ function App() {
     });
   };
 
-
-  const upgradeImprovemnt = (index: number): void => {};
+  const upgradeImprovemnt = (index: number): void => {
+    // set state first
+    // Clone the previous structures array
+    // Get the improvement to upgrade
+    // Define the cost of upgrade
+    // Check if there are enough resources for the upgrade
+    // Upgrade the improvement level
+    // Deduct the cost from resources
+  };
 
   return (
     <div className="App">

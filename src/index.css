@@ -14,3 +14,7 @@ body {
   background-color: black;
   color: ivory;
 }
+
+button {
+  cursor: pointer;
+}

@@ -21,8 +21,9 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    const newImprovement: Improvement = { type: improvement, level: 1}
-    addImprovement(idx, newImprovement)
+    // TODO
+    const newImprovement: Improvement = { type: improvement, level: 1 };
+    addImprovement(idx, newImprovement);
   };
 
   return (
@@ -38,6 +39,9 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
           value={improvement}
           onChange={(e) => setImprovement(e.target.value)}
         >
+          <option value="" disabled selected>
+            Improve Colony
+          </option>
           {improvementTypes.map((type) => {
             return <option value={type}>{type}</option>;
           })}
