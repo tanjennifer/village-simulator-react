@@ -42,10 +42,9 @@ function App() {
       const resourceTypeKey = costItem.resourceType as keyof typeof resources;
       if (resources[resourceTypeKey] < costItem.amountRequired) {
         canAdd = false;
-        console.log(resources[resourceTypeKey], costItem.amountRequired);
-        console.log();
       }
     });
+
     if (canAdd) {
       setStructures((prev) => {
         // make a copy
@@ -53,11 +52,27 @@ function App() {
         // modify copy
         copyOfPrev[index] = improvement;
         // return that copy
+
+        // subtracting recourses needed to add improvement:
+        improvement.cost.forEach((costItem) => {
+          const resourceTypeKey =
+            costItem.resourceType as keyof typeof resources;
+          resources[resourceTypeKey] -= costItem.amountRequired;
+        });
+
+        // add benefit to recourses:
+        setResources((prev) => {
+          const copyOfResources = { ...prev };
+          copyOfResources[
+            improvement.benefit.resourceType as keyof typeof resources
+          ] += improvement.benefit.amountGained;
+
+          return copyOfResources;
+        });
+
         return copyOfPrev;
       });
-      console.log("Successfully created improvement");
     } else {
-      console.log("Not enough resources");
     }
   };
 
