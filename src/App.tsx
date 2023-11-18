@@ -62,7 +62,7 @@ function App() {
         <h1>Space Colony</h1>
       </header>
       <main>
-        <ResourcesView />
+        <ResourcesView resources={resources} />
         <Map structures={structures} addImprovement={addImprovement} />
       </main>
     </div>

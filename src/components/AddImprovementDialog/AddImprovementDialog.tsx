@@ -14,6 +14,7 @@ const improvementTypes: string[] = [
   "Launchpad",
   "Rocket",
   "Observatory",
+  "Oxygen Concentrator",
 ];
 
 const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
@@ -21,8 +22,18 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
-    // TODO
-    const newImprovement: Improvement = { type: improvement, level: 1 };
+
+    const newImprovement: Improvement = {
+      type: improvement,
+      level: 1,
+      benefit: { resourceType: "alien", amountGained: 5 },
+      cost: [
+        { resourceType: "starDust", amountRequired: 5 },
+        { resourceType: "oxygen", amountRequired: 5 },
+        { resourceType: "alienFood", amountRequired: 5 },
+        { resourceType: "gloopie", amountRequired: 1 },
+      ],
+    };
     addImprovement(idx, newImprovement);
   };
 
@@ -46,6 +57,36 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
             return <option value={type}>{type}</option>;
           })}
         </select>
+        {improvement === "Research Lab" && (
+          <div>
+            <p>Benefit: 5 Aliens</p>
+            <p>Cost: 5 Star Dust, 5 Oxygen, 5 Alien Food, 1 Gloopie </p>
+          </div>
+        )}
+        {improvement === "Launchpad" && (
+          <div>
+            <p>Benefit: 5 Gloopies </p>
+            <p>Cost: 1 Alien, 2 Oxygen, 2 Alien Food </p>
+          </div>
+        )}
+        {improvement === "Rocket" && (
+          <div>
+            <p>Benefit: 10 Alien Food</p>
+            <p>Cost: 1 Alien, 2 Star Dust </p>
+          </div>
+        )}
+        {improvement === "Observatory" && (
+          <div>
+            <p>Benefit: 10 Star Dust</p>
+            <p>Cost: 1 Alien </p>
+          </div>
+        )}
+        {improvement === "Oxygen Concentrator" && (
+          <div>
+            <p>Benefit: 10 Oxygen</p>
+            <p>Cost: 1 Alien, 2 Alien Food</p>
+          </div>
+        )}
       </form>
     </>
   );
