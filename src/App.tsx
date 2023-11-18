@@ -36,14 +36,29 @@ function App() {
   // functions --------------------------------------------------
 
   const addImprovement = (index: number, improvement: Improvement): void => {
-    setStructures((prev) => {
-      // make a copy
-      const copyOfPrev = [...prev.slice(0)];
-      // modify copy
-      copyOfPrev[index] = improvement;
-      // return that copy
-      return copyOfPrev;
+    let canAdd = true;
+
+    improvement.cost.forEach((costItem) => {
+      const resourceTypeKey = costItem.resourceType as keyof typeof resources;
+      if (resources[resourceTypeKey] < costItem.amountRequired) {
+        canAdd = false;
+        console.log(resources[resourceTypeKey], costItem.amountRequired);
+        console.log();
+      }
     });
+    if (canAdd) {
+      setStructures((prev) => {
+        // make a copy
+        const copyOfPrev = [...prev.slice(0)];
+        // modify copy
+        copyOfPrev[index] = improvement;
+        // return that copy
+        return copyOfPrev;
+      });
+      console.log("Successfully created improvement");
+    } else {
+      console.log("Not enough resources");
+    }
   };
 
   const upgradeImprovemnt = (index: number): void => {

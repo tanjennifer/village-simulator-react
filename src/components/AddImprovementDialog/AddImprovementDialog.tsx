@@ -18,23 +18,68 @@ const improvementTypes: string[] = [
 ];
 
 const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
-  const [improvement, setImprovement] = useState("");
+  const [improvement, setImprovement] = useState("Improve Colony");
 
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
+    // create newImprovement variable
+    let newImprovement: Improvement | null = null;
 
-    const newImprovement: Improvement = {
-      type: improvement,
-      level: 1,
-      benefit: { resourceType: "alien", amountGained: 5 },
-      cost: [
-        { resourceType: "starDust", amountRequired: 5 },
-        { resourceType: "oxygen", amountRequired: 5 },
-        { resourceType: "alienFood", amountRequired: 5 },
-        { resourceType: "gloopie", amountRequired: 1 },
-      ],
-    };
-    addImprovement(idx, newImprovement);
+    if (improvement === "Research Lab") {
+      newImprovement = {
+        type: improvement,
+        level: 1,
+        benefit: { resourceType: "alien", amountGained: 5 },
+        cost: [
+          { resourceType: "starDust", amountRequired: 5 },
+          { resourceType: "oxygen", amountRequired: 5 },
+          { resourceType: "alienFood", amountRequired: 5 },
+          { resourceType: "gloopie", amountRequired: 1 },
+        ],
+      };
+    } else if (improvement === "Observatory") {
+      newImprovement = {
+        type: improvement,
+        level: 1,
+        benefit: { resourceType: "starDust", amountGained: 10 },
+        cost: [{ resourceType: "alien", amountRequired: 1 }],
+      };
+    } else if (improvement === "Oxygen Concentrator") {
+      newImprovement = {
+        type: improvement,
+        level: 1,
+        benefit: { resourceType: "oxygen", amountGained: 10 },
+        cost: [
+          { resourceType: "alien", amountRequired: 1 },
+          { resourceType: "alienFood", amountRequired: 2 },
+        ],
+      };
+    } else if (improvement === "Launchpad") {
+      newImprovement = {
+        type: improvement,
+        level: 1,
+        benefit: { resourceType: "gloopie", amountGained: 5 },
+        cost: [
+          { resourceType: "alien", amountRequired: 1 },
+          { resourceType: "oxygen", amountRequired: 2 },
+          { resourceType: "alienFood", amountRequired: 2 },
+        ],
+      };
+    } else if (improvement === "Rocket") {
+      newImprovement = {
+        type: improvement,
+        level: 1,
+        benefit: { resourceType: "alienFood", amountGained: 10 },
+        cost: [
+          { resourceType: "alien", amountRequired: 1 },
+          { resourceType: "starDust", amountRequired: 2 },
+        ],
+      };
+    }
+    if (newImprovement) {
+      addImprovement(idx, newImprovement);
+    }
+    close();
   };
 
   return (
@@ -50,11 +95,15 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
           value={improvement}
           onChange={(e) => setImprovement(e.target.value)}
         >
-          <option value="" disabled selected>
+          <option defaultValue="" disabled selected>
             Improve Colony
           </option>
-          {improvementTypes.map((type) => {
-            return <option value={type}>{type}</option>;
+          {improvementTypes.map((type, index) => {
+            return (
+              <option key={index} value={type}>
+                {type}
+              </option>
+            );
           })}
         </select>
         {improvement === "Research Lab" && (
