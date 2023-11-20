@@ -5,9 +5,10 @@ import "./Map.css";
 interface Props {
   structures: Improvement[];
   addImprovement: (i: number, improvement: Improvement) => void;
+  upgradeImprovement: (i: number) => void;
 }
 
-const Map = ({ structures, addImprovement }: Props) => {
+const Map = ({ structures, addImprovement, upgradeImprovement }: Props) => {
   return (
     <section className="Map">
       {structures.map((structure, index) => {
@@ -17,6 +18,7 @@ const Map = ({ structures, addImprovement }: Props) => {
             idx={index}
             structure={structure}
             addImprovement={addImprovement}
+            upgradeImprovement={upgradeImprovement}
           />
         );
       })}

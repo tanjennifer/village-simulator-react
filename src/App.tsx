@@ -76,14 +76,52 @@ function App() {
     }
   };
 
-  const upgradeImprovemnt = (index: number): void => {
-    // set state first
-    // Clone the previous structures array
-    // Get the improvement to upgrade
-    // Define the cost of upgrade
-    // Check if there are enough resources for the upgrade
-    // Upgrade the improvement level
-    // Deduct the cost from resources
+  const upgradeImprovement = (index: number): void => {
+    const improvement = structures[index];
+
+    let canUpgrade = true;
+
+    improvement.cost.forEach((costItem) => {
+      const resourceTypeKey = costItem.resourceType as keyof typeof resources;
+      if (
+        resources[resourceTypeKey] <
+        costItem.amountRequired * improvement.level
+      ) {
+        canUpgrade = false;
+      }
+    });
+    if (canUpgrade) {
+      setStructures((prev) => {
+        const copyOfStructures = [...prev.slice(0)];
+        const copyOfImprovement = { ...copyOfStructures[index] };
+        improvement.cost.forEach((costItem) => {
+          const resourceTypeKey =
+            costItem.resourceType as keyof typeof resources;
+          resources[resourceTypeKey] -=
+            costItem.amountRequired * improvement.level;
+        });
+        copyOfImprovement.level++;
+        console.log("testing!!");
+
+        copyOfStructures[index] = {
+          ...copyOfStructures[index],
+          level: copyOfStructures[index].level + 1,
+        };
+        setResources((prev) => {
+          const copyOfResources = { ...prev };
+          copyOfResources[
+            improvement.benefit.resourceType as keyof typeof resources
+          ] += improvement.benefit.amountGained;
+
+          return copyOfResources;
+        });
+        console.log(copyOfStructures);
+
+        return copyOfStructures;
+      });
+    } else {
+      console.log("not enough resources to upgrade");
+    }
   };
 
   return (
@@ -93,7 +131,11 @@ function App() {
       </header>
       <main>
         <ResourcesView resources={resources} />
-        <Map structures={structures} addImprovement={addImprovement} />
+        <Map
+          structures={structures}
+          addImprovement={addImprovement}
+          upgradeImprovement={upgradeImprovement}
+        />
       </main>
     </div>
   );
