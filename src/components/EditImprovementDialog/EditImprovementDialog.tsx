@@ -5,12 +5,14 @@ interface Props {
   structure: Improvement;
   close: () => void;
   upgradeImprovement: () => void;
+  downgradeImprovement: () => void;
 }
 
 const EditImprovementDialog = ({
   structure,
   close,
   upgradeImprovement,
+  downgradeImprovement,
 }: Props) => {
   return (
     <div className="EditImprovementDialog">
@@ -19,7 +21,7 @@ const EditImprovementDialog = ({
       <div className="btn-container">
         <button onClick={close}>close</button>
         <button onClick={upgradeImprovement}>upgrade</button>
-        <button>downgrade</button>
+        <button onClick={downgradeImprovement}>downgrade</button>
       </div>
     </div>
   );

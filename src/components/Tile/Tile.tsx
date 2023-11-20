@@ -9,6 +9,7 @@ interface Props {
   addImprovement: (index: number, improvement: Improvement) => void;
   idx: number;
   upgradeImprovement: (i: number) => void;
+  downgradeImprovement: (i: number) => void;
 }
 
 const Tile = ({
@@ -16,6 +17,7 @@ const Tile = ({
   addImprovement,
   idx,
   upgradeImprovement,
+  downgradeImprovement,
 }: Props) => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [showEditForm, setShowEditForm] = useState(false);
@@ -51,6 +53,7 @@ const Tile = ({
       {showEditForm && (
         <EditImprovementDialog
           upgradeImprovement={() => upgradeImprovement(idx)}
+          downgradeImprovement={() => downgradeImprovement(idx)}
           structure={structure}
           close={() => {
             setShowEditForm(false);

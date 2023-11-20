@@ -18,17 +18,17 @@ function App() {
     alien: 0,
   });
 
-  const hardcodedImprovement: Improvement = {
-    type: "Research Lab",
-    level: 1,
-    benefit: { resourceType: "alien", amountGained: 5 },
-    cost: [
-      { resourceType: "starDust", amountRequired: 5 },
-      { resourceType: "oxygen", amountRequired: 5 },
-      { resourceType: "alienFood", amountRequired: 5 },
-      { resourceType: "gloopie", amountRequired: 1 },
-    ],
-  };
+  // const hardcodedImprovement: Improvement = {
+  //   type: "Research Lab",
+  //   level: 1,
+  //   benefit: { resourceType: "alien", amountGained: 5 },
+  //   cost: [
+  //     { resourceType: "starDust", amountRequired: 5 },
+  //     { resourceType: "oxygen", amountRequired: 5 },
+  //     { resourceType: "alienFood", amountRequired: 5 },
+  //     { resourceType: "gloopie", amountRequired: 1 },
+  //   ],
+  // };
 
   // functions --------------------------------------------------
 
@@ -50,24 +50,25 @@ function App() {
         copyOfPrev[index] = improvement;
         // return that copy
 
+        // add benefit to recourses:
+
+        return copyOfPrev;
+      });
+
+      setResources((prev) => {
+        const copyOfResources = { ...prev };
+        copyOfResources[
+          improvement.benefit.resourceType as keyof typeof resources
+        ] += improvement.benefit.amountGained;
+
         // subtracting recourses needed to add improvement:
         improvement.cost.forEach((costItem) => {
           const resourceTypeKey =
             costItem.resourceType as keyof typeof resources;
-          resources[resourceTypeKey] -= costItem.amountRequired;
+          copyOfResources[resourceTypeKey] -= costItem.amountRequired;
         });
 
-        // add benefit to recourses:
-        setResources((prev) => {
-          const copyOfResources = { ...prev };
-          copyOfResources[
-            improvement.benefit.resourceType as keyof typeof resources
-          ] += improvement.benefit.amountGained;
-
-          return copyOfResources;
-        });
-
-        return copyOfPrev;
+        return copyOfResources;
       });
     } else {
     }
@@ -91,12 +92,7 @@ function App() {
       setStructures((prev) => {
         const copyOfStructures = [...prev.slice(0)];
         const copyOfImprovement = { ...copyOfStructures[index] };
-        improvement.cost.forEach((costItem) => {
-          const resourceTypeKey =
-            costItem.resourceType as keyof typeof resources;
-          resources[resourceTypeKey] -=
-            costItem.amountRequired * improvement.level;
-        });
+
         copyOfImprovement.level++;
         console.log("testing!!");
 
@@ -104,20 +100,69 @@ function App() {
           ...copyOfStructures[index],
           level: copyOfStructures[index].level + 1,
         };
-        setResources((prev) => {
-          const copyOfResources = { ...prev };
-          copyOfResources[
-            improvement.benefit.resourceType as keyof typeof resources
-          ] += improvement.benefit.amountGained;
 
-          return copyOfResources;
-        });
         console.log(copyOfStructures);
 
         return copyOfStructures;
       });
+
+      setResources((prev) => {
+        const copyOfResources = { ...prev };
+        copyOfResources[
+          improvement.benefit.resourceType as keyof typeof resources
+        ] += improvement.benefit.amountGained;
+
+        improvement.cost.forEach((costItem) => {
+          const resourceTypeKey =
+            costItem.resourceType as keyof typeof resources;
+          copyOfResources[resourceTypeKey] -=
+            costItem.amountRequired * improvement.level;
+        });
+        return copyOfResources;
+      });
     } else {
       console.log("not enough resources to upgrade");
+    }
+  };
+
+  const downgradeImprovement = (index: number): void => {
+    let canDowngrade = false;
+    const improvement = structures[index];
+
+    if (improvement.level > 1) {
+      canDowngrade = true;
+    }
+    if (canDowngrade) {
+      setStructures((prev) => {
+        const copyOfStructures = [...prev.slice(0)];
+        const copyOfImprovement = { ...copyOfStructures[index] };
+
+        copyOfImprovement.level--;
+        console.log("testing!!");
+
+        copyOfStructures[index] = {
+          ...copyOfStructures[index],
+          level: copyOfStructures[index].level - 1,
+        };
+
+        console.log(copyOfStructures);
+
+        return copyOfStructures;
+      });
+      setResources((prev) => {
+        const copyOfResources = { ...prev };
+        copyOfResources[
+          improvement.benefit.resourceType as keyof typeof resources
+        ] -= improvement.benefit.amountGained;
+
+        improvement.cost.forEach((costItem) => {
+          const resourceTypeKey =
+            costItem.resourceType as keyof typeof resources;
+          copyOfResources[resourceTypeKey] +=
+            costItem.amountRequired * (improvement.level - 1);
+        });
+        return copyOfResources;
+      });
     }
   };
 
@@ -132,6 +177,7 @@ function App() {
           structures={structures}
           addImprovement={addImprovement}
           upgradeImprovement={upgradeImprovement}
+          downgradeImprovement={downgradeImprovement}
         />
       </main>
     </div>

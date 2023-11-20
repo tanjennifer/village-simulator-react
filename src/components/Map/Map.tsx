@@ -6,9 +6,15 @@ interface Props {
   structures: Improvement[];
   addImprovement: (i: number, improvement: Improvement) => void;
   upgradeImprovement: (i: number) => void;
+  downgradeImprovement: (i: number) => void;
 }
 
-const Map = ({ structures, addImprovement, upgradeImprovement }: Props) => {
+const Map = ({
+  structures,
+  addImprovement,
+  upgradeImprovement,
+  downgradeImprovement,
+}: Props) => {
   return (
     <section className="Map">
       {structures.map((structure, index) => {
@@ -19,6 +25,7 @@ const Map = ({ structures, addImprovement, upgradeImprovement }: Props) => {
             structure={structure}
             addImprovement={addImprovement}
             upgradeImprovement={upgradeImprovement}
+            downgradeImprovement={downgradeImprovement}
           />
         );
       })}
