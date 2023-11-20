@@ -95,7 +95,7 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
           value={improvement}
           onChange={(e) => setImprovement(e.target.value)}
         >
-          <option defaultValue="" disabled selected>
+          <option value="Improve Colony" disabled>
             Improve Colony
           </option>
           {improvementTypes.map((type, index) => {

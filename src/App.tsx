@@ -30,9 +30,6 @@ function App() {
     ],
   };
 
-  structures[0] = hardcodedImprovement;
-  structures[10] = hardcodedImprovement;
-
   // functions --------------------------------------------------
 
   const addImprovement = (index: number, improvement: Improvement): void => {
