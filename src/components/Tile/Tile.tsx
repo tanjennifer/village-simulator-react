@@ -3,6 +3,11 @@ import Improvement from "../../models/Improvement";
 import "./Tile.css";
 import AddImprovementDialog from "../AddImprovementDialog/AddImprovementDialog";
 import EditImprovementDialog from "../EditImprovementDialog/EditImprovementDialog";
+import star from "../../assets/stardust.png";
+import oxygen from "../../assets/oxygen.png";
+import food from "../../assets/alienfood.png";
+import alien from "../../assets/alien.png";
+import gloopie from "../../assets/gloopie.png";
 
 interface Props {
   structure: Improvement;
@@ -33,12 +38,28 @@ const Tile = ({
     }
   };
 
-  // close add/edit dialog (callback prop):
+  const getIcon = (improvement: Improvement): string => {
+    if (improvement.type === "Research Lab") {
+      return alien;
+    } else if (improvement.type === "Observatory") {
+      return star;
+    } else if (improvement.type === "Launchpad") {
+      return gloopie;
+    } else if (improvement.type === "Rocket") {
+      return food;
+    } else if (improvement.type === "Oxygen Concentrator") {
+      return oxygen;
+    } else {
+      return "";
+    }
+  };
 
   return (
     <>
       <div className="Tile" onClick={clickHandler}>
-        {structure ? `${structure.type} - Level ${structure.level}` : "Empty"}
+        {structure && (
+          <img className="improvementIcon" src={getIcon(structure)} />
+        )}
       </div>
       {showAddForm && (
         <AddImprovementDialog

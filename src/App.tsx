@@ -18,6 +18,8 @@ function App() {
     alien: 0,
   });
 
+  const [resourceErrMsg, setResourceErrMsg] = useState("");
+
   // const hardcodedImprovement: Improvement = {
   //   type: "Research Lab",
   //   level: 1,
@@ -43,6 +45,7 @@ function App() {
     });
 
     if (canAdd) {
+      setResourceErrMsg("");
       setStructures((prev) => {
         // make a copy
         const copyOfPrev = [...prev.slice(0)];
@@ -71,6 +74,7 @@ function App() {
         return copyOfResources;
       });
     } else {
+      setResourceErrMsg(`Not enough resources to add ${improvement.type} :(`);
     }
   };
 
@@ -118,10 +122,17 @@ function App() {
           copyOfResources[resourceTypeKey] -=
             costItem.amountRequired * improvement.level;
         });
+
         return copyOfResources;
       });
+      setResourceErrMsg("");
     } else {
       console.log("not enough resources to upgrade");
+      setResourceErrMsg(
+        `Not enough resources to upgrade ${improvement.type} to level ${
+          improvement.level + 1
+        } :(`
+      );
     }
   };
 
@@ -164,6 +175,7 @@ function App() {
         return copyOfResources;
       });
     }
+    setResourceErrMsg("");
   };
 
   return (
@@ -179,6 +191,7 @@ function App() {
           upgradeImprovement={upgradeImprovement}
           downgradeImprovement={downgradeImprovement}
         />
+        {resourceErrMsg && <p className="resourceErrMsg">{resourceErrMsg}</p>}
       </main>
     </div>
   );

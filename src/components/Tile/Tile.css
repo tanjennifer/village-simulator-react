@@ -1,7 +1,13 @@
 .Tile {
   width: 65px;
   height: 65px;
-  background-color: rgb(255, 255, 255);
+  background-image: url(../../assets/moon-small.png);
+  background-size: cover;
   border: 1px solid black;
   color: black;
+}
+
+.Tile .improvementIcon {
+  height: 50px;
+  width: 50px;
 }
