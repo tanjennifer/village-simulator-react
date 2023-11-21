@@ -23,8 +23,14 @@ button {
 
 h1 {
   font-size: 40px;
-  font-family: 'Orbitron', sans-serif;
+  font-family: "Orbitron", sans-serif;
   background: -webkit-linear-gradient(rgb(117, 157, 243), rgb(1, 21, 48));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
- }
+}
+
+@media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 100px;
+  }
+}

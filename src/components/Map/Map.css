@@ -8,6 +8,6 @@
 
 @media only screen and (min-width: 768px) {
   .Map {
-    flex: 3;
+    width: 800px;
   }
 }

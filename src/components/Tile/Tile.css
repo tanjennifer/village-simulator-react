@@ -29,3 +29,21 @@
   top: 0px;
   left: 0;
 }
+
+@media only screen and (min-width: 768px) {
+  .Tile {
+    width: 135px;
+    height: 135px;
+  }
+
+  .Tile .improvementIcon {
+    height: 80px;
+    width: 80px;
+  }
+
+  .Tile .levelDisplay {
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+  }
+}

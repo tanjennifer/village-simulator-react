@@ -89,7 +89,7 @@ const AddImprovementDialog = ({ close, addImprovement, idx }: Props) => {
         <button type="button" onClick={close}>
           close
         </button>
-        <label htmlFor="improvements">Pick</label>
+        <label htmlFor="improvements">Choose building to add:</label>
         <select
           id="improvements"
           value={improvement}

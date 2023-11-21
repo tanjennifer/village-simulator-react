@@ -6,6 +6,9 @@
 
 @media only screen and (min-width: 768px) {
   .ResourcesView {
-    flex: 1;
+    height: 685px;
+    justify-content: space-around;
+    margin-left: 70px;
+    width: 20vw;
   }
 }

@@ -36,3 +36,22 @@
   display: block;
   margin-bottom: 5px;
 }
+
+@media only screen and (min-width: 768px) {
+  .EditImprovementDialog {
+    width: 400px;
+    height: fit-content;
+    font-size: 25px;
+  }
+
+  .EditImprovementDialog button {
+    font-size: 20px;
+  }
+
+  .EditImprovementDialog select {
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+}

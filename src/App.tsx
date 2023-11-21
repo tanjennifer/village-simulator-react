@@ -13,11 +13,11 @@ function App() {
   // Add state for starting resources
   // both ResourceView and Map need this
   const [resources, setResources] = useState({
-    starDust: 115,
-    oxygen: 115,
-    alienFood: 115,
-    gloopie: 111,
-    alien: 110,
+    starDust: 5,
+    oxygen: 5,
+    alienFood: 5,
+    gloopie: 1,
+    alien: 0,
   });
 
   const [resourceErrMsg, setResourceErrMsg] = useState("");

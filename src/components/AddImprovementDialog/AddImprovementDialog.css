@@ -35,3 +35,22 @@
 .AddImprovementDialog label {
   display: block;
 }
+
+@media only screen and (min-width: 768px) {
+  .AddImprovementDialog {
+    width: 400px;
+    height: fit-content;
+    font-size: 25px;
+  }
+
+  .AddImprovementDialog button {
+    font-size: 20px;
+  }
+
+  .AddImprovementDialog select {
+    padding: 10px 10px;
+    border-radius: 15px;
+    margin: 10px 0;
+    font-size: 20px;
+  }
+}

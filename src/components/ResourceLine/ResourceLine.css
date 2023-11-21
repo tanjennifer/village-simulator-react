@@ -22,3 +22,24 @@
 .ResourceLine .amount {
   flex: 1;
 }
+
+@media only screen and (min-width: 768px) {
+  .ResourceLine {
+    height: 100px;
+    width: 400px;
+    padding: 5px 20px;
+  }
+
+  .ResourceLine .type {
+    font-size: 20px;
+  }
+
+  .ResourceLine .icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  .ResourceLine .amount {
+    font-size: 20px;
+  }
+}
