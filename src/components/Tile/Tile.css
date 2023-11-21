@@ -5,9 +5,12 @@
   background-size: cover;
   border: 1px solid black;
   color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .Tile .improvementIcon {
-  height: 50px;
-  width: 50px;
+  height: 45px;
+  width: 45px;
 }

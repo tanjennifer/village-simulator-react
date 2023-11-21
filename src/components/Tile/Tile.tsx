@@ -3,11 +3,12 @@ import Improvement from "../../models/Improvement";
 import "./Tile.css";
 import AddImprovementDialog from "../AddImprovementDialog/AddImprovementDialog";
 import EditImprovementDialog from "../EditImprovementDialog/EditImprovementDialog";
-import star from "../../assets/stardust.png";
-import oxygen from "../../assets/oxygen.png";
-import food from "../../assets/alienfood.png";
-import alien from "../../assets/alien.png";
-import gloopie from "../../assets/gloopie.png";
+
+import lab from "../../assets/lab.png";
+import launchpad from "../../assets/launchpad.png";
+import observatory from "../../assets/observatory.png";
+import oxygencon from "../../assets/oxygen-con.png";
+import rocket from "../../assets/rocket.png";
 
 interface Props {
   structure: Improvement;
@@ -40,15 +41,15 @@ const Tile = ({
 
   const getIcon = (improvement: Improvement): string => {
     if (improvement.type === "Research Lab") {
-      return alien;
+      return lab;
     } else if (improvement.type === "Observatory") {
-      return star;
+      return observatory;
     } else if (improvement.type === "Launchpad") {
-      return gloopie;
+      return launchpad;
     } else if (improvement.type === "Rocket") {
-      return food;
+      return rocket;
     } else if (improvement.type === "Oxygen Concentrator") {
-      return oxygen;
+      return oxygencon;
     } else {
       return "";
     }
