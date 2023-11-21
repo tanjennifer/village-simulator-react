@@ -4,6 +4,7 @@ import Improvement from "./models/Improvement";
 import ResourcesView from "./components/ResourcesView/ResourcesView";
 import Map from "./components/Map/Map";
 import spacemsg from "../src/assets/space-man.png";
+import cancelBtn from "../src/assets/cancel.png";
 
 function App() {
   const [structures, setStructures] = useState<Improvement[]>(
@@ -75,7 +76,7 @@ function App() {
         return copyOfResources;
       });
     } else {
-      setResourceErrMsg(`Not enough resources to add ${improvement.type} :(`);
+      setResourceErrMsg(`Not enough resources to add ${improvement.type}!`);
     }
   };
 
@@ -132,7 +133,7 @@ function App() {
       setResourceErrMsg(
         `Not enough resources to upgrade ${improvement.type} to level ${
           improvement.level + 1
-        } :(`
+        }!`
       );
     }
   };
@@ -191,7 +192,15 @@ function App() {
             <div>
               <img src={spacemsg} className="msgIcon"></img>
             </div>
-            <p className="resourceErrMsg">{resourceErrMsg}</p>
+            <div className="errorContainer">
+              {" "}
+              <p className="resourceErrMsg">{resourceErrMsg}</p>
+              <img
+                src={cancelBtn}
+                className="cancelBtn"
+                onClick={() => setResourceErrMsg("")}
+              />
+            </div>
           </>
         )}
         <div className="map-container">

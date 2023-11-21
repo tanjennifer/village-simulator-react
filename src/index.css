@@ -13,6 +13,8 @@ body {
   font-family: sans-serif;
   background-color: black;
   color: ivory;
+  background-image: url("/src/assets/stars-background.png");
+  background-size: cover;
 }
 
 button {
