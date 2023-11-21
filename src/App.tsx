@@ -3,6 +3,7 @@ import "./App.css";
 import Improvement from "./models/Improvement";
 import ResourcesView from "./components/ResourcesView/ResourcesView";
 import Map from "./components/Map/Map";
+import spacemsg from "../src/assets/space-man.png";
 
 function App() {
   const [structures, setStructures] = useState<Improvement[]>(
@@ -191,7 +192,14 @@ function App() {
           upgradeImprovement={upgradeImprovement}
           downgradeImprovement={downgradeImprovement}
         />
-        {resourceErrMsg && <p className="resourceErrMsg">{resourceErrMsg}</p>}
+        {resourceErrMsg && (
+          <>
+            <div>
+              <img src={spacemsg} className="msgIcon"></img>
+            </div>
+            <p className="resourceErrMsg">{resourceErrMsg}</p>
+          </>
+        )}
       </main>
     </div>
   );

@@ -3,7 +3,6 @@ import Improvement from "../../models/Improvement";
 import "./Tile.css";
 import AddImprovementDialog from "../AddImprovementDialog/AddImprovementDialog";
 import EditImprovementDialog from "../EditImprovementDialog/EditImprovementDialog";
-
 import lab from "../../assets/lab.png";
 import launchpad from "../../assets/launchpad.png";
 import observatory from "../../assets/observatory.png";

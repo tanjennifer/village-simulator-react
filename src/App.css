@@ -11,13 +11,41 @@
   align-items: center;
 }
 
+.App .msgIcon {
+  width: 40px;
+  height: 40px;
+  margin-top: 10px;
+
+  position: relative;
+    -webkit-animation: floatBubble 5s infinite  normal ease-out;
+    animation: floatBubble 4s infinite  normal ease-out;
+}
+@-webkit-keyframes floatBubble {
+    0% {
+        top:500px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+@keyframes floatBubble {
+    0% {
+        top:500px;
+    }
+    100% {
+        top: 0px;
+    }
+}
+
 .App .resourceErrMsg {
   background: linear-gradient(to right, red, orange, yellow);
   color: black;
   font-weight: bold;
-  padding: 10px;
-  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;;
 }
+
+
 
 @media only screen and (min-width: 768px) {
   .App main {
