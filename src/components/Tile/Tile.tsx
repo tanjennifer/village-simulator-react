@@ -60,7 +60,10 @@ const Tile = ({
         {structure && (
           <img className="improvementIcon" src={getIcon(structure)} />
         )}
+        <div className="levelDisplayContainer"></div>
+        {structure && <div className="levelDisplay">{structure.level}</div>}
       </div>
+
       {showAddForm && (
         <AddImprovementDialog
           idx={idx}

@@ -15,26 +15,33 @@
   width: 40px;
   height: 40px;
   margin-top: 10px;
+  z-index: 11;
 
   position: relative;
-    -webkit-animation: floatBubble 5s infinite  normal ease-out;
-    animation: floatBubble 4s infinite  normal ease-out;
+  -webkit-animation: floatBubble 10s infinite normal ease-out;
+  animation: floatBubble 8s infinite normal ease-in-out;
 }
 @-webkit-keyframes floatBubble {
-    0% {
-        top:500px;
-    }
-    100% {
-        top: 0px;
-    }
+  0% {
+    top: 350px;
+  }
+  50% {
+    top: 0px;
+  }
+  100% {
+    top: 350px;
+  }
 }
 @keyframes floatBubble {
-    0% {
-        top:500px;
-    }
-    100% {
-        top: 0px;
-    }
+  0% {
+    top: 350px;
+  }
+  50% {
+    top: -120px;
+  }
+  100% {
+    top: 350px;
+  }
 }
 
 .App .resourceErrMsg {
@@ -42,13 +49,18 @@
   color: black;
   font-weight: bold;
   padding: 5px;
-  border-radius: 5px;;
+  border-radius: 5px;
+  position: absolute;
+  width: 300px;
+  top: 335px;
 }
-
-
 
 @media only screen and (min-width: 768px) {
   .App main {
     flex-direction: row;
+  }
+
+  .App .map-container {
+    flex: 3;
   }
 }

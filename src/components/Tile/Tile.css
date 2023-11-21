@@ -3,14 +3,29 @@
   height: 65px;
   background-image: url(../../assets/moon-small.png);
   background-size: cover;
-  border: 1px solid black;
+  border: 1px solid transparent;
   color: black;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  /* z-index: -5; */
 }
 
 .Tile .improvementIcon {
   height: 45px;
   width: 45px;
+}
+
+.Tile .levelDisplay {
+  position: absolute;
+  background-color: white;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0px;
+  left: 0;
 }

@@ -12,11 +12,11 @@ function App() {
   // Add state for starting resources
   // both ResourceView and Map need this
   const [resources, setResources] = useState({
-    starDust: 5,
-    oxygen: 5,
-    alienFood: 5,
-    gloopie: 1,
-    alien: 0,
+    starDust: 115,
+    oxygen: 115,
+    alienFood: 115,
+    gloopie: 111,
+    alien: 110,
   });
 
   const [resourceErrMsg, setResourceErrMsg] = useState("");
@@ -115,7 +115,7 @@ function App() {
         const copyOfResources = { ...prev };
         copyOfResources[
           improvement.benefit.resourceType as keyof typeof resources
-        ] += improvement.benefit.amountGained;
+        ] += improvement.benefit.amountGained * improvement.level;
 
         improvement.cost.forEach((costItem) => {
           const resourceTypeKey =
@@ -165,7 +165,7 @@ function App() {
         const copyOfResources = { ...prev };
         copyOfResources[
           improvement.benefit.resourceType as keyof typeof resources
-        ] -= improvement.benefit.amountGained;
+        ] -= improvement.benefit.amountGained * (improvement.level - 1);
 
         improvement.cost.forEach((costItem) => {
           const resourceTypeKey =
@@ -186,12 +186,6 @@ function App() {
       </header>
       <main>
         <ResourcesView resources={resources} />
-        <Map
-          structures={structures}
-          addImprovement={addImprovement}
-          upgradeImprovement={upgradeImprovement}
-          downgradeImprovement={downgradeImprovement}
-        />
         {resourceErrMsg && (
           <>
             <div>
@@ -200,6 +194,14 @@ function App() {
             <p className="resourceErrMsg">{resourceErrMsg}</p>
           </>
         )}
+        <div className="map-container">
+          <Map
+            structures={structures}
+            addImprovement={addImprovement}
+            upgradeImprovement={upgradeImprovement}
+            downgradeImprovement={downgradeImprovement}
+          />
+        </div>
       </main>
     </div>
   );
