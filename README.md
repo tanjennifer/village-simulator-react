@@ -45,4 +45,4 @@ To get "Space Colony" up and running on your local machine, follow these steps:
 
 ## Live Demo
 
-Experience "Space Colony" live at [Website Link](YOUR_WEBSITE_LINK).
+Experience live at [Space Colony](https://space-colony-simulator.surge.sh/).
