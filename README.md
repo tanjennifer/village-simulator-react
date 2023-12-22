@@ -1,30 +1,36 @@
-# React + TypeScript + Vite
+# Space Colony - Village Simulator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+"Space Colony" is a village simulator game built with React and TypeScript. In this game, players build and manage a space colony by placing improvements on a grid map. The challenge lies in balancing resource consumption and production to expand the colony efficiently.
 
-Currently, two official plugins are available:
+## Features
+- **Dynamic Grid Map**: Interactively build your colony by placing improvements on the map.
+- **Resource Management**: Strategically manage resources to grow your colony.
+- **Upgrade System**: Enhancements can be upgraded, downgraded, or removed to adapt to your strategy.
+- **Responsive Design**: A mobile-first approach for an optimal experience on various devices.
+- **Customizable Interface**: Personalize your colony with a range of options.
+- **Engaging User Interface**: Intuitive and visually appealing UI elements.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
+- React
+- TypeScript
+- CSS
+- Vite
 
-## Expanding the ESLint configuration
+## Installation
+To get "Space Colony" up and running on your local machine, follow these steps:
+1. Clone the repository: `git clone [repository-link]`
+2. Navigate to the project directory: `cd space-colony`
+3. Install dependencies: `npm install`
+4. Start the server: `npm run dev`
+5. Visit `http://localhost:5173/` in your browser
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Game Rules
+- **Initial Resources**: Start with a basic set of resources.
+- **Building Improvements**: Click on the grid cells to add improvements.
+- **Resource Balancing**: Keep an eye on your resources to sustain your colony.
+- **Colony Upgrades**: Enhance your colony's capabilities by upgrading improvements.
 
-- Configure the top-level `parserOptions` property like this:
+## Live Demo
+Experience "Space Colony" live at [Website Link](YOUR_WEBSITE_LINK).
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
